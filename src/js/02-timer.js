@@ -71,7 +71,6 @@ function onclick() {
       clearInterval(intervalId);
       return;
     }
-
     updateIndicatorTimer(convertMs(diff));
   }, 1000);
 }
