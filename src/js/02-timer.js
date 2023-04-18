@@ -21,16 +21,26 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates[0] <= new Date()) {
-      Notiflix.Notify.failure('Please choose a date in the future', {
-        width: '500px',
-        position: 'center-top',
-        fontSize: '20px',
-      });
+      Notiflix.Notify.failure(
+        'Please choose a date in the future',
+        {
+          width: '500px',
+          position: 'center-top',
+          fontSize: '20px',
+        },
+        (btnStart.disabled = true)
+      );
     } else {
       btnStart.disabled = false;
       currentUserDate = selectedDates[0];
     }
   },
+
+  // onChange(selectedDates) {
+  //   if (selectedDates[0] <= new Date()) {
+  //     btnStart.disabled = true;
+  //   }
+  // },
 };
 
 const fp = flatpickr(myInput, options);
